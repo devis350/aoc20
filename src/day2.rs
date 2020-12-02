@@ -29,7 +29,7 @@ pub fn solve_part1(input: &[Password]) -> usize {
 pub fn solve_part2(input: &[Password]) -> usize {
     input.iter()
         .filter(|p| {
-            (p.code.chars().nth((p.min - 1).try_into().unwrap()).unwrap() == p.c )^
+            (p.code.chars().nth((p.min - 1).try_into().unwrap()).unwrap() == p.c) ^
                 (p.code.chars().nth((p.max - 1).try_into().unwrap()).unwrap() == p.c)
         })
         .count()

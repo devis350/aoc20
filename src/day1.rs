@@ -22,11 +22,11 @@ pub fn solve_part2(input: &[u32]) -> Option<u32> {
         .enumerate()
         .find_map(|(i, &num)| {
             input.iter()
-                .skip(i)
+                .skip(i + 1)
                 .enumerate()
                 .find_map(|(j, &num1)| {
                     input.iter()
-                        .skip(i + j)
+                        .skip(i + j + 1)
                         .find_map(|&num2| if num + num1 + num2 == 2020 { Some(num * num1 * num2) } else { None })
                 })
         })
