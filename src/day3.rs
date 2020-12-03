@@ -16,17 +16,17 @@ pub fn solve_part1(input: &Vec<Vec<bool>>) -> usize {
 
 #[aoc(day3, part2)]
 pub fn solve_part2(input: &Vec<Vec<bool>>) -> usize {
-    dbg!(check(input, 1, 1))
-        * dbg!(check(input, 3, 1))
-        * dbg!(check(input, 5, 1))
-        * dbg!(check(input, 7, 1))
-        * dbg!(check(input, 1, 2))
+    check(input, 1, 1)
+        * check(input, 3, 1)
+        * check(input, 5, 1)
+        * check(input, 7, 1)
+        * check(input, 1, 2)
 }
 
 pub fn check(input: &Vec<Vec<bool>>, right: usize, down: usize) -> usize {
     input.iter()
         .enumerate()
-        .filter(|(i, _)| i % down == 0)
-        .filter(|(i, trees)| trees[(i * right) % trees.len()])
-        .count()
+        .step_by(down)
+        .filter(|(i, trees)| trees[(i /down *right) % trees.len()])
+    .count()
 }
